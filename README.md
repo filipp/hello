@@ -6,18 +6,19 @@ hello is a boilerplate repository.
 
 - nginx with _autoindex_ on and _autoindex_format_ set to _json_ for the repo directory:
 
-    server {
-        listen       8080;
-        server_name  localhost;
+        server {
+            listen       8080;
+            server_name  localhost;
 
-        location / {
-            root   /Users/filipp/Projects/hello/templates;
-            autoindex on;
-            autoindex_format json;
+            location / {
+                root   /Users/filipp/Projects/hello/templates;
+                autoindex on;
+                autoindex_format json;
+            }
         }
-    }
 
 - the _requests_ HTTP client library (which everyone probably already has installed). _pip install -r requirements.txt_ to install.
+
 
 ## Setup
 
@@ -27,16 +28,19 @@ hello is a boilerplate repository.
 
 ## Usage
 
-Run _hello.py_ with boilerplate name or without the name to get a list of available templates
+Run _hello.py_ with boilerplate name or without the name to get a list of available templates.
 
 The boilerplate templates get rendered with all your environment variables as context so feel free to use stuff like $HOME or $PWD or $USER or whatever inside them.
 
-'Nuff said.
 
 ## FAQ
 
 - Why not do this as a snippet collection for <insert editor name here>?
 - I keep switching between 4 different editors so I needed something a bit more universal.
+
+- But <insert product name here> already does this!?
+- Yes, it probably does. Why cook yourself when you can just buy a frozen pizza, right?
+
 
 ## License
 
