@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import os
 import sys
+from string import Template
+
 import requests
 
 def main(arg=None):
@@ -12,16 +14,20 @@ def main(arg=None):
         templates.append(t['name'])
 
     if arg is None:
-        return templates
+        return "\n".join(templates)
 
     if arg in templates:
         url = "{0}/{1}".format(repo.rstrip("/"), arg)
-        template = requests.get(url).text
-        return template
+        template = Template(requests.get(url).text)
+        return template.substitute(**os.environ)
     else:
         error = "Template for {0} not found".format(arg)
         raise Exception(error)
 
 
 if __name__ == '__main__':
-    print(main(sys.argv[1]))
+    arg = None
+    if len(sys.argv) > 1:
+        arg = sys.argv[1]
+
+    print(main(arg))

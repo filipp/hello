@@ -9,15 +9,15 @@ http {
     include       mime.types;
     default_type  application/octet-stream;
 
-    sendfile        on;
-    keepalive_timeout  65;
+    sendfile            on;
+    keepalive_timeout   65;
 
     server {
         listen       8080;
         server_name  localhost;
 
         location / {
-            root   html;
+            root   $PWD/public_html;
             index  index.html index.htm;
         }
     }
